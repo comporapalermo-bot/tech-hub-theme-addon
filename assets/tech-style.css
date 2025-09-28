@@ -1,0 +1,73 @@
+/* TechHub Theme - Stile principale */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #0b0f19;
+  color: #f5f5f5;
+}
+
+header.tech-header {
+  background: linear-gradient(90deg, #0b0f19, #111d3a);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header.tech-header h1 {
+  font-size: 1.5rem;
+  color: #00ffcc;
+  text-transform: uppercase;
+}
+
+.tech-btn {
+  background: #00ffcc;
+  color: #0b0f19;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.tech-btn:hover {
+  background: #00ccaa;
+}
+
+/* Card prodotto */
+.product-card-tech {
+  background: #141a29;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.product-card-tech:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ffcc44;
+}
+
+.product-card-tech img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+
+// TechHub Theme - Script principale
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("TechHub theme attivo 🚀");
+
+  // Piccola animazione sugli elementi in vista
+  const elements = document.querySelectorAll(".product-card-tech, .hero-tech");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  elements.forEach(el => observer.observe(el));
+});
+
